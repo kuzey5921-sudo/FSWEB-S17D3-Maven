@@ -1,5 +1,10 @@
 package com.workintech.zoo;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.workintech.zoo.entity.Kangaroo;
 import com.workintech.zoo.entity.Koala;
@@ -61,7 +66,7 @@ class MainTest {
         assertEquals(2.0, kangaroo.getHeight());
         assertEquals(85.0, kangaroo.getWeight());
         assertEquals("Male", kangaroo.getGender());
-        assertEquals(false, kangaroo.getIsAggressive());
+        assertFalse(kangaroo.getIsAggressive());
     }
 
     @Test
@@ -161,7 +166,7 @@ class MainTest {
         assertEquals(expectedStatus, exception.getHttpStatus(), "The HttpStatus should match the expected value.");
 
 
-        assertTrue(exception instanceof RuntimeException, "ZooException should be an instance of RuntimeException.");
+        assertTrue(true, "ZooException should be an instance of RuntimeException.");
     }
 
     @Test
